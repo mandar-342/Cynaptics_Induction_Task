@@ -34,8 +34,7 @@ The script will ask you to type a prompt and how many characters you want genera
 
 Example session:
 ```
-=== Shakespeare Text Generator ===
-Press Ctrl+C to quit.
+
 
 Enter your prompt: Shall I compare thee
 How many characters to generate? (default 500): 300
