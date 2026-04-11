@@ -50,7 +50,7 @@ That thou dost love the world...
 
 Prompt used: `To be or not to be`
 
-![Sample Generation Output](generation image.png)
+![Sample Generation Output](generation%20image.png)
 
 The model picks up Shakespeare's vocabulary (thee, thou, thy, shalt, dream'd), the dramatic line structure, and even the punctuation patterns pretty well for something trained from scratch on a single text file.
 
@@ -58,7 +58,7 @@ The model picks up Shakespeare's vocabulary (thee, thou, thy, shalt, dream'd), t
 
 ## Training and Validation Loss
 
-![Training and Validation Losses](training and validation losses.png)
+![Training and Validation Losses](training%20and%20validation%20losses.png)
 
 Trained on a 90/10 train/val split of the Shakespeare corpus (vocab size: 65 unique characters). The val loss closely followed the train loss throughout — ending at train 1.21 and val 1.49, a gap of about 0.28. That's a healthy margin and shows the model generalised rather than just memorising the training text.
 
