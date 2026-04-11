@@ -8,7 +8,7 @@ from model import GPT
 def sample_logits(logits, temperature=0.8, top_k=50, top_p=0.9, repetition_penalty=1.1, prev_tokens=None):
     logits = logits / temperature
 
-    # repetition penalty
+    
     if prev_tokens is not None:
         for token in set(prev_tokens):
             logits[:, token] /= repetition_penalty
@@ -22,7 +22,7 @@ def sample_logits(logits, temperature=0.8, top_k=50, top_p=0.9, repetition_penal
     if top_p is not None:
         sorted_logits, sorted_idx = torch.sort(logits, descending=True)
         cumulative_probs = torch.cumsum(F.softmax(sorted_logits, dim=-1), dim=-1)
-        # remove tokens with cumulative probability above the threshold
+        
         sorted_idx_to_remove = cumulative_probs - F.softmax(sorted_logits, dim=-1) > top_p
         sorted_logits[sorted_idx_to_remove] = -float('Inf')
         logits = torch.scatter(logits, 1, sorted_idx, sorted_logits)
@@ -46,7 +46,7 @@ def generate(model, context, max_new_tokens, config):
             top_k=50,
             top_p=0.9,
             repetition_penalty=1.15,
-            prev_tokens=generated[0].tolist()[-200:]  # only penalize recent tokens
+            prev_tokens=generated[0].tolist()[-200:]  
         )
 
         generated = torch.cat((generated, next_token), dim=1)
@@ -55,7 +55,7 @@ def generate(model, context, max_new_tokens, config):
 
 
 def encode_prompt(prompt, stoi):
-    # skip characters not in vocabulary instead of crashing
+   
     return [stoi[c] for c in prompt if c in stoi]
 
 
